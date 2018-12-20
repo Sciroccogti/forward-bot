@@ -91,7 +91,8 @@ $ sudo docker run -d --network=host -ti --rm --name cqhttp-test \
 ```
 $ sudo apt install python3-pip # 如果没有安装pip3，则先安装
 $ pip3 install cqhttp
-$ pip3 install python-telegram-bot
+$ sudo apt install python-pip # 如果没有安装pip，则先安装
+$ pip install python-telegram-bot
 ```
 
 下载源代码
