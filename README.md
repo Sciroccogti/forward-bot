@@ -31,9 +31,9 @@
 ## 使用步骤
 ### 1. 先要获取到你的Telegram 账号的ID（数字，类似于QQ号码).
 
-去找 `@oy_test_bot` （有时这个机器人会被我停掉。）这个机器人然后 输入命令 `get_my_id`。
+去找 [JsonDumpBot](https://web.telegram.org/#/im?p=@JsonDumpBot) 这个机器人。
 
-然后`保存`好这个数字。
+然后`保存`好`chat: id`。通常为9位。
 
 ### 2. 去找 `@BotFather` 注册一个机器人。
 
@@ -54,11 +54,13 @@ list_groups - 查看所有群组
 
 首先要安装好 Docker [链接](https://docs.docker.com/install/) 安装 `docker-ce`。
 
+参考[教程](http://www.runoob.com/docker/ubuntu-docker-install.html)。
+
 安装好之后。
 
 ```
 $ sudo systemctl start docker
-$ docker pull richardchien/cqhttp:latest
+$ sudo docker pull richardchien/cqhttp:latest
 $ mkdir coolq  # 用于存储酷 Q 的程序文件
 ```
 
@@ -70,7 +72,7 @@ $ sudo docker run -d --network=host -ti --rm --name cqhttp-test \
             -v $(pwd)/coolq:/home/user/coolq \
             -p 9000:9000 \
             -p 5700:5700 \
-            -e VNC_PASSWD=fK32lrGf \
+            -e VNC_PASSWD=fK32lrGf \ # 建议修改！
             -e CQHTTP_POST_URL=http://localhost:8889 \
             -e CQHTTP_HOST=127.0.0.1 \
             -e CQHTTP_SERVE_DATA_FILES=yes \
@@ -87,6 +89,7 @@ $ sudo docker run -d --network=host -ti --rm --name cqhttp-test \
 安装依赖库。
 
 ```
+$ sudo apt install python3-pip # 如果没有安装pip3，则先安装
 $ pip3 install cqhttp
 $ pip3 install python-telegram-bot
 ```
